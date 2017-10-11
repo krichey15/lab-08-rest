@@ -1,0 +1,23 @@
+{
+  "name": "lab-08-rest",
+  "version": "0.0.1",
+  "description": "Lab-08",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krichey15/lab-08-rest.git"
+  },
+  "author": "richey.kyle.i@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krichey15/lab-08-rest/issues"
+  },
+  "homepage": "https://github.com/krichey15/lab-08-rest#readme",
+  "devDependencies": {
+    "expect": "^21.2.1",
+    "mocha": "^4.0.1"
+  }
+}
