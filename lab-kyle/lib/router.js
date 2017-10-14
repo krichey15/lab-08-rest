@@ -1,14 +1,12 @@
 'use strict';
 
 let router = module.exports = exports = {};
-router.routes = {
-  'GET': {},
-  'POST': {},
-  'PUT': {},
-  'PATCH': {},
-  'DELETE': {},
-};
+router.routes = {};
+let methods = ['get', 'post', 'put', 'patch', 'delete'];
 
-router.get = function(pathname, callback) {
-  router.routes['GET'][pathname] = callback;
-}
+methods.forEach((method) => {
+  router.routes[method.toUpperCase()] = {};
+  router[method] = function(pathname, callback){
+    router.routes[method.toUpperCase()][pathname] = callback;
+  };
+});
