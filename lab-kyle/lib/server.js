@@ -1,7 +1,6 @@
 'use strict';
 
 const http = require('http');
-const url = require('url');
 const router = require('./lib/router.js');
 
 let isRunning = false;
@@ -30,7 +29,7 @@ module.exports = {
   stop: () => {
     return new Promise((resolve, reject) => {
       if (!isRunning) {
-        
+
       }
     });
   },
