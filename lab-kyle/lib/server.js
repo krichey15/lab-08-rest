@@ -21,7 +21,7 @@ module.exports = {
           }
         });
       } else {
-        reject('Server is already runnning');
+        reject('Error: Server is already runnning');
       }
     });
   },
@@ -29,22 +29,17 @@ module.exports = {
   stop: () => {
     return new Promise((resolve, reject) => {
       if (!isRunning) {
-
+        reject('Error: Server is NOT running');
+      } else {
+        app.close(err => {
+          if(err){
+            reject(err);
+          } else {
+            isRunning = false;
+            resolve('Server stopped.');
+          }
+        });
       }
     });
   },
-
 };
-
-// router.get('/', function(req,res){
-//   res.writeHead(200, {'Content-Type': 'text/plain'});
-//   res.write('Hello World');
-//   res.end();
-// })
-//
-// const server = http.createServer(function(req, res){
-//   req.url = url.parse(req.url);
-//   router.routes[req.method][req.url.pathname](req,res);
-// });
-//
-// server.listen(3000);
