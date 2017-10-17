@@ -5,7 +5,9 @@ const queryString = require('query-string');
 
 module.exports = (req) = {
 
-  return new Promise((resolve, reject) => {
+    //When I run "node index.js" in the command line it comes back with an error that it has an unexpected token "new", refering to the "new Promise..."
+
+    return new Promise( (resolve, reject) => {
 
     req.url = url.parse(req.url);
     req.url.query = queryString.parse(req.url.query);
