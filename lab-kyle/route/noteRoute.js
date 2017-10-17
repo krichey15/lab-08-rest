@@ -24,15 +24,15 @@ router.GET('api/notes', (req,res) => {
 
   if(id) {
     let note = notes.filter( (note) => {
-      return note.uuid === id;
+      return note.id === id;
     });
     if (note) {
       sendJSON(res, 200, note);
     } else {
-      sendStatus(res, 400, 'Bad Request');
+      sendStatus(res, 404, 'Note Not Found');
     }
   } else {
-    let everyNote = {everyNote: notes};
+    let everyNote = {allNotes: notes};
     sendJSON(res, 200, everyNote);
   }
 });
@@ -47,5 +47,7 @@ router.POST('api/notes', (req, res) => {
 
   let note = new Note(req.body);
   notes.push(note);
+
+  sendJSON(res, 201, note);
 
 });
