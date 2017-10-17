@@ -10,6 +10,10 @@ class Note {
     this.title = config.title || '';
     this.content = config.content || '';
   }
+
+  toString(){
+    return `${this.title}\n${this.content}`;
+  }
 }
 
 module.exports = Note;
