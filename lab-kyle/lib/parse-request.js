@@ -5,6 +5,8 @@ const queryString = require('query-string');
 
 module.exports = (req) => {
 
+  return new Promise( (resolve, reject) => {
+
     req.url = url.parse(req.url);
     req.url.query = queryString.parse(req.url.query);
 
