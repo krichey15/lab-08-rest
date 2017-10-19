@@ -19,7 +19,7 @@ let sendJSON = (res, status, data) => {
   res.end(JSON.stringify(data));
 };
 
-router.GET('api/notes', (req,res) => {
+router.get('api/notes', (req,res) => {
   let id = req.url && req.url.query && req.url.query.id;
 
   if(id) {
@@ -37,7 +37,7 @@ router.GET('api/notes', (req,res) => {
   }
 });
 
-router.POST('api/notes', (req, res) => {
+router.post('api/notes', (req, res) => {
   if(!req.body.title) {
     return sendStatus (res, 400 , 'No Title Found');
   }

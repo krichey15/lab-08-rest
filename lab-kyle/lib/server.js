@@ -2,7 +2,7 @@
 
 const http = require('http');
 const router = require('../lib/router.js');
-  
+const note = require('../route/noteRoute.js');
 
 let isRunning = false;
 
