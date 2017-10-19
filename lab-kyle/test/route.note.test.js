@@ -8,13 +8,13 @@ const superagent = require('superagent');
 
 describe('api/notes', function() {
 
-  beforeEach( () => {
-    console.log('in beforeEach');
+  beforeAll( () => {
+    console.log('in beforeAll');
     return server.start(process.env.PORT);
   });
 
-  afterEach( () => {
-    console.log('in afterEach');
+  afterAll( () => {
+    console.log('in afterAll');
     return server.stop();
   });
 
@@ -23,7 +23,7 @@ describe('api/notes', function() {
     test('should respond with a 201', () => {
       return superagent.post('http://localhost:5500/api/notes')
         .set('Content-Type', 'application/json')
-        .send( {
+        .send({
           title:'Hello World!',
           content: 'First Try!',
         })
@@ -34,7 +34,7 @@ describe('api/notes', function() {
         });
     });
 
-    test('should respond with a 400 if no content', () =>{
+    test('should respond with a 404 if no content', () =>{
       return superagent.post('http://localhost:5500/api/notes')
         .set('Content-Type', 'application/json')
         .send({
@@ -42,11 +42,11 @@ describe('api/notes', function() {
         })
         .then(Promise.reject)
         .catch(res => {
-          expect(res.status).toEqual(400);
+          expect(res.status).toEqual(404);
         });
     });
 
-    test('should respond with a 400 if no title', () =>{
+    test('should respond with a 404 if no title', () =>{
       return superagent.post('http://localhost:5500/api/notes')
         .set('Content-Type', 'application/json')
         .send({
@@ -54,7 +54,7 @@ describe('api/notes', function() {
         })
         .then(Promise.reject)
         .catch(res => {
-          expect(res.status).toEqual(400);
+          expect(res.status).toEqual(404);
         });
     });
   });
