@@ -7,12 +7,14 @@ const server = require('../lib/server');
 const superagent = require('superagent');
 
 describe('api/notes', function() {
-  
+
   beforeEach( () => {
+    console.log('in beforeEach');
     return server.start(process.env.PORT);
   });
 
   afterEach( () => {
+    console.log('in afterEach');
     return server.stop();
   });
 

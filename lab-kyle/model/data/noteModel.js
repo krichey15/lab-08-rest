@@ -4,7 +4,7 @@ const uuid = require('uuid/v1');
 
 class Note {
 
-  constuctor(config){
+  constructor(config){
     this.id = uuid();
     this.createdOn = new Date();
     this.title = config.title || '';

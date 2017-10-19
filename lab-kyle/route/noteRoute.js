@@ -39,7 +39,7 @@ router.get('api/notes', (req,res) => {
 
 router.post('api/notes', (req, res) => {
   if(!req.body.title) {
-    return sendStatus (res, 400 , 'No Title Found');
+    return sendStatus(res, 400 , 'No Title Found');
   }
   if(!req.body.content) {
     return sendStatus(res, 400, 'No Content Found');
