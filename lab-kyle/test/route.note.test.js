@@ -25,7 +25,7 @@ describe('api/notes', function() {
       return superagent.post('http://localhost:5500/api/notes')
         .set('Content-Type', 'application/json')
         .send({
-          title:'Hello World!',
+          title: 'Hello World!',
           content: 'First Try!',
         })
         .then( res => {

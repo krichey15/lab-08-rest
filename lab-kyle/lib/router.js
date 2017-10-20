@@ -40,7 +40,7 @@ module.exports = {
       })
       .catch((err) => {
         console.error('Invalid Request', err);
-        res.writeHead(400);
+        res.writeHead(404);
         res.end();
       });
   },

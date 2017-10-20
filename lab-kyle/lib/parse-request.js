@@ -22,9 +22,7 @@ module.exports = (req) => {
 
     req.on('end', () => {
       try {
-        if(req.headers['Content-Type'] === 'application/json'){
-          req.body = JSON.parse(text);
-        }
+        req.body = JSON.parse(text);
         resolve(req);
       } catch (err){
         console.log(err);
