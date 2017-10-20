@@ -1,4 +1,5 @@
 'use strict';
+/*global beforeAll, afterAll */
 
 const expect = require('expect');
 
